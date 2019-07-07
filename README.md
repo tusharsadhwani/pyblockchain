@@ -1,18 +1,42 @@
-# pychain
+# pyblockchain
 
-> A demo blockchain project using python
+> A demo blockchain API/website using python3.6, flask and vue.js
 
-## Build Setup
+## Installation
 
 ``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
+npm install # or yarn
+```
+```bash
+pip install -r requirements.txt
 ```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Testing The API
+
+1. Run the flask app in a terminal window
+```bash
+python blockchain.py
+```
+
+2. Test the API in a browser...
+
+```localhost:5000/chain```
+
+or using cURL.
+```bash
+curl localhost:5000/chain
+```
+
+## How To Run
+
+1. Run the flask app in a terminal window
+```bash
+python blockchain.py
+```
+
+2. Run the webapp in another terminal window
+
+``` bash
+# serve with hot reload at localhost:8080
+npm run dev
+```
