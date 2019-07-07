@@ -1,9 +1,6 @@
 import hashlib
-import json
-import requests
 from time import time
 from uuid import uuid4
-from urllib.parse import urlparse
 from flask import Flask, abort, jsonify, request, redirect
 from flask_cors import CORS
 
