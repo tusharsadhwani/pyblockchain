@@ -1,8 +1,8 @@
 {
-  "name": "pyblockchain",
-  "description": "A demo blockchain API and website using python3.6, flask and vue.js",
+  "name": "pychain",
+  "description": "A demo blockchain project using python",
   "version": "1.0.0",
-  "author": "Tushar Sadhwani",
+  "author": "Kanishk Tiwari",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -29,6 +29,6 @@
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.4.4",
     "webpack": "^3.6.0",
-    "webpack-dev-server": "^3.1.11"
+    "webpack-dev-server": "^2.9.1"
   }
 }
