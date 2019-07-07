@@ -1,8 +1,8 @@
 {
-  "name": "pychain",
-  "description": "A demo blockchain project using python",
+  "name": "pyblockchain",
+  "description": "A demo blockchain API and website using python3.6, flask and vue.js",
   "version": "1.0.0",
-  "author": "Kanishk Tiwari",
+  "author": "Tushar Sadhwani",
   "license": "MIT",
   "private": true,
   "scripts": {
