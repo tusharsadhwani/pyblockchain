@@ -4,14 +4,15 @@
     <button class="clear" @click="clear()">Clear</button>
     <section class="blocks-container">
       <div class="blocks">
-        <Block 
-          v-for="(block, index) in blockchain" 
+        <Block
+          v-for="(block, index) in blockchain"
           :key="index"
           :block-data="block"
           :xhr="xhr"
           @mine="mine($event)"
           @changedata="changedata($event)"
-          @changenonce="changenonce($event)">
+          @changenonce="changenonce($event)"
+        >
         </Block>
         <div class="button-container">
           <button class="newblock" @click="newblock()">+</button>
@@ -22,61 +23,67 @@
 </template>
 
 <script>
-import Block from './components/Block'
+import Block from "./components/Block";
 
 export default {
-  name: 'app',
+  name: "app",
   components: { Block },
-  data () {
+  data() {
     return {
       blockchain: [],
-      xhr: null
-    }
+      xhr: null,
+    };
   },
   methods: {
-    mine (index) {
-      this.xhr.open('GET', `http://localhost:5000/mine/${index}`)
-      this.xhr.send()
+    mine(index) {
+      this.xhr.open("GET", `http://localhost:5000/mine/${index}`);
+      this.xhr.send();
     },
-    newblock (index) {
-      this.xhr.open('GET', 'http://localhost:5000/newblock')
-      this.xhr.send()
+    newblock() {
+      this.xhr.open("GET", "http://localhost:5000/newblock");
+      this.xhr.send();
     },
-    changedata (data) {
-      let index = data[0]
-      let newdata = data[1]
-      this.xhr.open('GET', `http://localhost:5000/changedata/${index}?data=${newdata}`)
-      this.xhr.send()
+    changedata(data) {
+      let index = data[0];
+      let newdata = data[1];
+      this.xhr.open(
+        "GET",
+        `http://localhost:5000/changedata/${index}?data=${newdata}`
+      );
+      this.xhr.send();
     },
-    changenonce (data) {
-      let index = data[0]
-      let newnonce = data[1]
-      this.xhr.open('GET', `http://localhost:5000/changenonce/${index}?nonce=${newnonce}`)
-      this.xhr.send()
+    changenonce(data) {
+      let index = data[0];
+      let newnonce = data[1];
+      this.xhr.open(
+        "GET",
+        `http://localhost:5000/changenonce/${index}?nonce=${newnonce}`
+      );
+      this.xhr.send();
     },
-    clear () {
-      this.xhr.open('GET', 'http://localhost:5000/clear')
-      this.xhr.send()
-    }
+    clear() {
+      this.xhr.open("GET", "http://localhost:5000/clear");
+      this.xhr.send();
+    },
   },
-  mounted () {
-    this.xhr = new XMLHttpRequest()
-    this.xhr.open('GET', 'http://localhost:5000/chain')
-    this.xhr.send()
+  mounted() {
+    this.xhr = new XMLHttpRequest();
+    this.xhr.open("GET", "http://localhost:5000/chain");
+    this.xhr.send();
     this.xhr.onload = () => {
-      if (this.xhr.status == 200){
-        this.blockchain = JSON.parse(this.xhr.response).chain
+      if (this.xhr.status == 200) {
+        this.blockchain = JSON.parse(this.xhr.response).chain;
       }
-    }
-  }
-}
+    };
+  },
+};
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap");
 * {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1.0em;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1em;
   margin: 0;
   padding: 0;
 }
@@ -115,8 +122,6 @@ h1.title {
   top: -5px;
   left: 10px;
   padding: 5px;
-  height: 32px;
-  width: 80px;
   border: none;
   border-radius: 5px;
   color: white;

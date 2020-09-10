@@ -1,29 +1,60 @@
 <template>
-  <div class="block" :class=" { 'block-valid': blockData.validated }">
+  <div class="block" :class="{ 'block-valid': blockData.validated }">
     <label for="index" class="label">
       <span>Index</span>
-      <input name="index" class="input" type="text" :value="blockData.index" disabled>
+      <input
+        name="index"
+        class="input"
+        type="text"
+        :value="blockData.index"
+        disabled
+      />
     </label>
     <label for="nonce" class="label">
       <span>Nonce</span>
-      <input name="nonce" class="input" type="text" :value="blockData.nonce" @input="changenonce($event, blockData.index)">
+      <input
+        name="nonce"
+        class="input"
+        type="text"
+        :value="blockData.nonce"
+        @input="changenonce($event, blockData.index)"
+      />
     </label>
     <label for="data" class="label">
       <span>Data</span>
-      <textarea name="data" v-model="blockData.data" @input="changedata($event, blockData.index)"></textarea>
+      <textarea
+        name="data"
+        v-model="blockData.data"
+        @input="changedata($event, blockData.index)"
+        style="resize: none;"
+      ></textarea>
     </label>
     <label for="hash" class="label">
       <span>Hash</span>
-      <input name="hash" class="input" type="text" :value="blockData.hash" disabled>
+      <input
+        name="hash"
+        class="input"
+        type="text"
+        :value="blockData.hash"
+        disabled
+      />
     </label>
     <label for="prevhash" class="label">
       <span>Previous Hash</span>
-      <input name="prevhash" class="input" type="text" :value="blockData.previous_hash" disabled>
+      <input
+        name="prevhash"
+        class="input"
+        type="text"
+        :value="blockData.previous_hash"
+        disabled
+      />
     </label>
     <label for="mine">
-      <button name="mine" 
+      <button
+        name="mine"
         :class="{ 'button-valid': blockData.validated }"
-        @click="mine(blockData.index)">
+        @click="mine(blockData.index)"
+      >
         Mine
       </button>
     </label>
@@ -32,19 +63,19 @@
 
 <script>
 export default {
-  props: ['blockData', 'xhr'],
+  props: ["blockData", "xhr"],
   methods: {
-    mine (index) {
-      this.$emit('mine', index)
+    mine(index) {
+      this.$emit("mine", index);
     },
-    changedata (event, index) {
-      this.$emit('changedata', [index, event.target.value])
+    changedata(event, index) {
+      this.$emit("changedata", [index, event.target.value]);
     },
-    changenonce (event, index) {
-      this.$emit('changenonce', [index, event.target.value])
-    }
-  }
-}
+    changenonce(event, index) {
+      this.$emit("changenonce", [index, event.target.value]);
+    },
+  },
+};
 </script>
 
 <style scoped>
