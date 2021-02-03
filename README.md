@@ -3,22 +3,20 @@
 ## Project setup
 ```
 yarn install
+pip install -r requirements.txt
 ```
 
-### Compiles and hot-reloads for development
+### Backend:
+```
+python blockchain.py
+```
+
+### Compile and hot-reloads frontend for development
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
+### Compile and minifies frontend for production
 ```
 yarn build
 ```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
